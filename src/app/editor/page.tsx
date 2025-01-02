@@ -86,7 +86,7 @@ const CodeEditorLayout: React.FC = () => {
   const handleConnect = () => setCode('// Write your code here')
 
   return (
-    <Navbar className="flex h-screen p-8 items-center justify-center gap-2">
+    <Navbar className="flex py-32 p-8 items-center justify-center gap-2">
       <div className='h-full w-3/5'>
         <Card className='h-full py-4'>
           <Editor

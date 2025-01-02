@@ -10,19 +10,18 @@ import { useRouter } from 'next/navigation';
 import { ChevronDown } from 'lucide-react'; // Chevron icon
 import logo from "../../public/logo.svg"
 
-function Navbar({ children, className, min }: { children?: React.ReactNode, className?:string, min?:boolean }) {
+function Navbar({ children, className }: { children?: React.ReactNode, className?:string}) {
   return (
-    <div className={`flex flex-col ${min ? "min-" : ""}h-screen`}>
-      <header className="sticky top-0 w-full flex justify-between px-4 sm:px-16 py-4 z-50 bg-background/80 backdrop-blur-lg border-b">
-        <Link href="/" className='font-bold text-xl sm:text-2xl flex items-center gap-2'>
-          <Image  src={logo} alt="NSACC Logo" width={40} height={40} />
-          <h1>NSACC</h1>
+    <div className={`flex flex-col h-screen`}>
+      <header className="fixed top-0 w-full flex justify-between px-4 sm:px-16 py-4 z-50 bg-background/80 backdrop-blur-lg border-b">
+        <Link href="/" className='font-bold text-xl sm:text-2xl flex items-center'>
+          <Image  src={logo} alt="NSACC Logo" width={30} height={30}  className='pointer-events-none'/>
+          <p>osiva</p>
         </Link>
         <div className='hidden sm:flex flex-row gap-4 md:gap-8 items-center'>
-          <Link href="/#about" className="text-foreground/60 hover:text-orange-500 transition-all">About Us</Link>
-          <Link href="/#programs" className="text-foreground/60 hover:text-orange-500 transition-all">Our Programs</Link>
-          <Link href="/editor" className="text-foreground/60 hover:text-orange-500 transition-all">Editor</Link>
-          </div>
+          <Link href="/#about" className="text-foreground/60 hover:text-orange-400 transition-all">About Us</Link>
+          <Link href="/#programs" className="text-foreground/60 hover:text-orange-400 transition-all">Our Programs</Link>
+        </div>
 
         <Sheet>
           <SheetTrigger asChild>
