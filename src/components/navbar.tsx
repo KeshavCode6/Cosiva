@@ -3,27 +3,23 @@
 import Link from 'next/link';
 import React, { useState } from 'react'
 import { Button } from './ui/button';
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import Image from "next/image";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Menu } from 'lucide-react';
-import { useRouter } from 'next/navigation';
-import { ChevronDown } from 'lucide-react'; // Chevron icon
-import logo from "../../public/logo.svg"
+import Footer from './footer';
+import Logo from './logo';
 
-function Navbar({ children, className }: { children?: React.ReactNode, className?:string}) {
+function Navbar({ children, className, footer }: { children?: React.ReactNode, className?: string, footer?: boolean }) {
   return (
     <div className={`flex flex-col h-screen`}>
       <header className="fixed top-0 w-full flex justify-between px-4 sm:px-16 py-4 z-50 bg-background/80 backdrop-blur-lg border-b">
-        <Link href="/" className='font-bold text-xl sm:text-2xl flex items-center'>
-          <Image  src={logo} alt="NSACC Logo" width={30} height={30}  className='pointer-events-none'/>
-          <p>osiva</p>
-        </Link>
+        <Logo />
         <div className='hidden sm:flex flex-row gap-4 md:gap-8 items-center'>
-          <Link href="/#about" className="text-foreground/60 hover:text-orange-400 transition-all">About Us</Link>
-          <Link href="/#programs" className="text-foreground/60 hover:text-orange-400 transition-all">Our Programs</Link>
+          <Link href="/#about" className="text-foreground/60 hover:text-orange-400 transition-all">About us</Link>
+          <Link href="/#workshops" className="text-foreground/60 hover:text-foreground">Our Workshops</Link>
+          <Link href="/editor" className="text-foreground/60 hover:text-foreground">Editor</Link>
         </div>
 
-        <Sheet>
+        <Sheet >
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon" className="sm:hidden">
               <Menu className="h-6 w-6" />
@@ -31,9 +27,10 @@ function Navbar({ children, className }: { children?: React.ReactNode, className
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+          <SheetTitle className='mb-4'>Menu</SheetTitle> 
             <nav className="flex flex-col gap-4">
               <Link href="/#about" className="text-foreground/60 hover:text-foreground">About Us</Link>
-              <Link href="/#programs" className="text-foreground/60 hover:text-foreground">Our Programs</Link>
+              <Link href="/#workshops" className="text-foreground/60 hover:text-foreground">Our Workshops</Link>
               <Link href="/editor" className="text-foreground/60 hover:text-foreground">Editor</Link>
 
               <Button asChild>
@@ -47,6 +44,7 @@ function Navbar({ children, className }: { children?: React.ReactNode, className
       <main className={`z-0 flex-grow ${className}`}>
         {children}
       </main>
+      {footer && (<Footer />)}
     </div>
   );
 }

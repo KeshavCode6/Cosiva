@@ -8,7 +8,7 @@ export default function WaveDivider({ className, direction, fillColor }:{classNa
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         className={className}
-        style={{ transform: direction == "top" ? "rotate(0deg)" : "rotate(180deg)"}}
+        style={{ transform: direction == "top" ? "rotate(0deg)" : "rotate(180deg)", marginTop:"-1px", marginBottom:"-1px"}}
     >
     <path
       style={{ transform: "translate(0, 0px)", opacity: 1 }}

@@ -11,10 +11,10 @@ const ErrorPage = () => {
                 <h1 className='text-3xl font-bold'>
                         PAGE NOT FOUND - 404
                     </h1>
-                    <p className='max-w-96 text-center my-2'>
-                        This page does not exist! If you believe this is a mistake of some sort, 
+                    <span className='max-w-96 text-center my-2'>
+                        This page does not exist! If you believe this is a mistake, 
                         please contact us. For now,
-                    </p>
+                    </span>
                     <Link className="text-purple-400 underline" href='/'>Return home</Link>
 
                 </div>
