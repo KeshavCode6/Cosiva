@@ -37,7 +37,7 @@ const tabContent = [
     title: "Pet Workshop",
     content: (
       <span>
-        Kids learn how to create a robot "pet" that moves, does tricks and makes sounds. By using the Python random library and voice control, they'll explore iteration and control flow in this challenging workshop designed for advanced learners.
+        Kids learn how to create a robot pet that moves, does tricks and makes sounds. By using the Python random library and voice control, they will explore iteration and control flow in this challenging workshop designed for advanced learners.
       </span>
     ),
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
@@ -88,15 +88,5 @@ export default function Workshops() {
   )
 }
 
-interface WorkshopTabCodeLineProps {
-  children: string
-}
 
-function WorkshopTabCodeLine({ children }: WorkshopTabCodeLineProps) {
-  return (
-    <span className='bg-secondary p-1 rounded-[5px] text-black hover:bg-secondary/95 transition-all hover:cursor-pointer'>
-      {children}
-    </span>
-  )
-}
 

@@ -1,19 +1,48 @@
 export const snippets = [
-	{ name: "moveForward(steps)", code: "moveForward(5)\n" },
-	{ name: "moveBackward(steps)", code: "moveBackward(10)\n" },
-	{ name: "turnLeft(degrees)", code: "turnLeft(90)\n" },
-	{ name: "turnRight(degrees)", code: "turnRight(90)\n" },
-	{ name: "log(message)", code: "log(\"Message goes here\")\n" },
-	{ name: "onSpeak(words)", code: "def onSpeak(words: str):\n\t..." },
+	{  code: "moveForward(5)\n" },
+	{ code: "moveBackward(10)\n" },
+	{code: "turnLeft(90)\n" },
+	{ code: "turnRight(90)\n" },
+	{code: "log(\"Message goes here\")\n" },
+	{code: "startListening()\n" },
+	{code: "function onSpeak(word){\n\tlog(word)\n}" },
+
 ]
 
 export const defaultCode = 
-`# Write your code here
+`// Write your code here
 
-def onStart():
+function onStart(){
 	log(\"Starting Robot!\")
+}
 `
 
+export const libCode = 
+`
+var sysCalls = []
+
+function log(msg) {
+    output.push(msg)
+}
+function startListening() {
+    sysCalls.push("stt")
+}
+function moveForward(steps) {
+    log("Moving forward")
+}
+function moveBackward(steps) {
+    log("Moving forward")
+}
+function turnLeft(degree) {
+    log("Moving forward")
+}
+function turnRight(degree) {
+    log("Moving forward")
+}
+function turnRight(degree) {
+    log("Moving forward")
+}
+`
 export const codeEditorThemeRules = [
 	{ token: "", foreground: "D4D4D4" },
 	{ token: "keyword", foreground: "A259FF" },

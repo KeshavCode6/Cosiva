@@ -8,21 +8,20 @@ if (typeof window !== "undefined") {
         recognition.continuous = true;
     }
 }
-
-export const useSpeechRecognition = (onRecognitionUpdate: (transcript: string) => Promise<void>) => {
+export const useSpeechRecognition = (onRecognitionUpdate: (word: string) => Promise<void>) => {
     const [text, setText] = useState("");
     const [isListening, setIsListening] = useState(false);
 
     useEffect(() => {
         if (!recognition) return;
 
-        recognition.onresult = async(event: SpeechRecognitionEvent) => {
-            const transcript = Array.from(event.results)
-                .map(result => result[0].transcript)
-                .join(" ");
+        recognition.onresult = async (event: SpeechRecognitionEvent) => {
+            // Extract the most recent word (the last part of the last result)
+            const latestResult = event.results[event.results.length - 1];
+            const latestWord = latestResult[0].transcript.trim();
 
-            await onRecognitionUpdate(transcript);
-            setText(transcript);
+            await onRecognitionUpdate(latestWord); // Pass only the latest word
+            setText((prevText) => prevText + " " + latestWord); // Optionally append it to the full transcript
         };
 
         recognition.onerror = async (event: any) => {

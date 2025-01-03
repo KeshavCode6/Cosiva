@@ -1,7 +1,7 @@
 import React from 'react'
 import Logo from './logo'
 import Link from 'next/link'
-import { Twitter, Facebook, Instagram, Mail, Youtube } from 'lucide-react'
+import { Facebook, Instagram, Mail, Youtube } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 
 export default function Footer() {

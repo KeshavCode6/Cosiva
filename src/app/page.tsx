@@ -7,7 +7,7 @@ import Link from "next/link";
 import Workshops from "@/components/sections/Workshops";
 import Image from "next/image";
 import { teamMembers } from "@/lib/utils";
-import { CalendarPlus, DollarSign, Mail, Rocket, Brain, Users, Code } from 'lucide-react';
+import { CalendarPlus, DollarSign, Mail } from 'lucide-react';
 import header from "@/../public/landing/header.svg";
 import Logo from "@/components/logo";
 
