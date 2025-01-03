@@ -3,6 +3,8 @@
 import React from 'react'
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { motion } from "framer-motion"
+
 const tabContent = [
   {
     title: "Maze Workshop",
@@ -35,13 +37,12 @@ const tabContent = [
     title: "Pet Workshop",
     content: (
       <span>
-        Kids learn how to create a robot "pet" that moves, does tricks and makes sounds. By using the Python random library and voice control, they’ll explore iteration and control flow in this challenging workshop designed for advanced learners.
+        Kids learn how to create a robot "pet" that moves, does tricks and makes sounds. By using the Python random library and voice control, they'll explore iteration and control flow in this challenging workshop designed for advanced learners.
       </span>
     ),
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
   },
 ];
-
 
 export default function Workshops() {
   return (
@@ -58,17 +59,28 @@ export default function Workshops() {
         </div>
         {tabContent.map((tab, index) => (
           <TabsContent key={index} value={`tab${index}`}>
-            <CardContent className="p-6 flex justify-center">
-              <div className="flex flex-col md:flex-row  gap-12">
-                <div className='flex flex-col'>
-                  <span className="text-lg sm:text-2xl font-bold">{tab.title}</span>
-                  <span className="text-black mt-2">{tab.content}</span>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5}}
+            >
+              <CardContent className="p-6 flex justify-center">
+                <div className="flex flex-col md:flex-row gap-12">
+                  <div className='flex flex-col'>
+                    <span className="text-lg sm:text-2xl font-bold">{tab.title}</span>
+                    <span className="text-black mt-2">{tab.content}</span>
+                  </div>
+                  <div className="aspect-w-16 aspect-h-9">
+                    <iframe 
+                      className='rounded-xl w-96 h-60' 
+                      src={tab.videoUrl} 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    />
+                  </div>
                 </div>
-                <div className="aspect-w-16 aspect-h-9">
-                  <iframe className='rounded-xl w-96 h-60' src={tab.videoUrl} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" />
-                </div>
-              </div>
-            </CardContent>
+              </CardContent>
+            </motion.div>
           </TabsContent>
         ))}
       </Tabs>
@@ -87,3 +99,4 @@ function WorkshopTabCodeLine({ children }: WorkshopTabCodeLineProps) {
     </span>
   )
 }
+

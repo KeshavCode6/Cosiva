@@ -55,7 +55,8 @@ export default function Landing() {
               <Button variant={"outline"}><Mail />Contact us!</Button>
             </div>
           </div>
-
+          <div className="flex flex-col items-center">
+          <span className="font-medium mb-4">Meet our team</span>
           <div className="flex flex-row gap-8">
             {teamMembers.map((member, index) => (
               <Link key={index} className="flex flex-col items-center text-center hover:scale-105 transition-all" href={member.site} target="_blank">
@@ -69,6 +70,9 @@ export default function Landing() {
               </Link>
             ))}
           </div>
+          
+          </div>
+
         </AnimatedSection>
       </div>
       <WaveDivider direction="bottom" fillColor="#f0ecec" />

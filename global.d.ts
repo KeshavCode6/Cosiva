@@ -1,4 +1,3 @@
 interface Window {
-    loadPyodide: any;
-    define:any;
+  pyscript: any;
   }
