@@ -5,7 +5,7 @@ export const snippets = [
 	{ code: "turnRight(90)\n" },
 	{code: "log(\"Message goes here\")\n" },
 	{code: "startListening()\n" },
-	{code: "function onSpeak(word){\n\tlog(word)\n}" },
+	{code: "function onSpeak(word) {\n\tlog(word)\n}" },
 
 ]
 
@@ -44,22 +44,24 @@ function turnRight(degree) {
 }
 `
 export const codeEditorThemeRules = [
-	{ token: "", foreground: "D4D4D4" },
-	{ token: "keyword", foreground: "A259FF" },
-	{ token: "string", foreground: "CE9178" },
-	{ token: "number", foreground: "9CDCFE" },
-	{ token: "comment", foreground: "6A9955" },
-	{ token: "delimiter", foreground: "B8D7A3" },
-	{ token: "variable", foreground: "DCDCAA" },
-	{ token: "type", foreground: "4EC9B0" },
-	{ token: "constant", foreground: "B5CEA8" },
-	{ token: "property", foreground: "D4D4D4" },
-	{ token: "method", foreground: "9CDCFE" },
-	{ token: "builtin", foreground: "D4D4D4" },
-	{ token: "attribute", foreground: "DCDCAA" },
-	{ token: "operator", foreground: "B5CEA8" },
-	{ token: "function", foreground: "C586FF" },
-]
+	{ token: "", foreground: "D4D4D4" }, // Default text
+	{ token: "keyword", foreground: "A259FF" }, // Keywords (e.g., const, let, function)
+	{ token: "string", foreground: "CE9178" }, // Strings
+	{ token: "number", foreground: "9CDCFE" }, // Numbers
+	{ token: "comment", foreground: "6A9955" }, // Comments
+	{ token: "delimiter", foreground: "B8D7A3" }, // Punctuation (e.g., braces, commas)
+	{ token: "variable", foreground: "DCDCAA" }, // Variables
+	{ token: "type.identifier", foreground: "4EC9B0" }, // Type annotations (e.g., string, number in TS)
+	{ token: "constant.language", foreground: "B5CEA8" }, // Constants like true, false, null
+	{ token: "property", foreground: "9CDCFE" }, // Object properties
+	{ token: "method", foreground: "C586FF" }, // Methods
+	{ token: "builtin", foreground: "D4D4D4" }, // Built-in objects (e.g., Math, Array)
+	{ token: "attribute.name", foreground: "DCDCAA" }, // Attribute names in JSX
+	{ token: "operator", foreground: "B5CEA8" }, // Operators (e.g., +, -, =)
+	{ token: "function", foreground: "C586FF" }, // Function declarations
+	{ token: "meta.import", foreground: "A259FF" }, // Import/export statements
+	{ token: "namespace", foreground: "D4D4D4" }, // Namespaces or modules
+];
 
 export function initCodeEditorTheme(monaco: any) {
 	monaco.editor.defineTheme("moon", {
@@ -89,14 +91,16 @@ export function initCodeEditorTheme(monaco: any) {
 			{ token: "comment", foreground: "6A9955" },
 			{ token: "delimiter", foreground: "393A34" },
 			{ token: "variable", foreground: "795E26" },
-			{ token: "type", foreground: "267F99" },
-			{ token: "constant", foreground: "B267E6" },
+			{ token: "type.identifier", foreground: "267F99" },
+			{ token: "constant.language", foreground: "B267E6" },
 			{ token: "property", foreground: "333333" },
 			{ token: "method", foreground: "267F99" },
 			{ token: "builtin", foreground: "333333" },
-			{ token: "attribute", foreground: "795E26" },
+			{ token: "attribute.name", foreground: "795E26" },
 			{ token: "operator", foreground: "393A34" },
 			{ token: "function", foreground: "AF00DB" },
+			{ token: "meta.import", foreground: "A259FF" },
+			{ token: "namespace", foreground: "333333" },
 		],
 		colors: {
 			"editor.background": "#FFFFFF",

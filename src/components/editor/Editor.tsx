@@ -92,7 +92,7 @@ const Editor = React.forwardRef((props: { setActiveTab: any, setOutput: any,  se
     };
 
     const handleResetCode = () => setEditorContent(defaultCode);
-    const handleConnect = () => setEditorContent("# Write your code here");
+    const handleConnect = () => {};
 
     useImperativeHandle(ref, () => ({
         runCode: () => handleRunCode(),
