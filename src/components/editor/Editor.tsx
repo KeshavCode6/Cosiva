@@ -136,6 +136,9 @@ const Editor = React.forwardRef((props: { setActiveTab: any, setOutput: any,  se
         runCode(editorContent, `onSpeak("${transcript.toString()}")`, true);
     });
 
+    const [device, setDevice] = useState(null);
+    const [characteristic, setCharacteristic] = useState(null);
+
     return (
         <Card
             className="h-full py-4"
