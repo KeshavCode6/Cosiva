@@ -1,4 +1,6 @@
 "use client";
+import Navbar from "@/components/navbar";
+import { Button } from "@/components/ui/button";
 import { useFirebaseAuth } from "@/hooks/useFirebaseAuth";
 import React, { useEffect } from "react";
 
@@ -10,14 +12,16 @@ export default function Login() {
   }, [status]);
 
   return (
-    <div className="flex flex-col">
-      <button
+    <Navbar className="pt-32">
+      <Button
         onClick={() => {
           signIn("google");
         }}
       >
         Sign up with google
-      </button>
-    </div>
+      </Button>
+
+      {userData?.uid}
+    </Navbar>
   );
 }

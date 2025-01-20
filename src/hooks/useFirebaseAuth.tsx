@@ -13,11 +13,11 @@ import {
 
 import { auth } from "../lib/firebase/client";
 import { useFirestore } from "./useFirestore";
-import { BallistaUser } from "@/lib/interfaces";
+import { CosivaUser } from "@/lib/interfaces";
 
 interface AuthContextType {
   firebaseUser: User | null;
-  userData: BallistaUser | null;
+  userData: CosivaUser | null;
   getUserData: () => Promise<void>;
   status: "authenticated" | "unauthenticated" | "loading";
   signIn: (
@@ -35,7 +35,7 @@ export const AuthContext = createContext<AuthContextType | undefined>(
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [firebaseUser, setFirebaseUser] = useState<User | null>(null);
-  const [userData, setUserData] = useState<BallistaUser | null>(null);
+  const [userData, setUserData] = useState<CosivaUser | null>(null);
   const [status, setStatus] = useState<
     "authenticated" | "unauthenticated" | "loading"
   >("loading");
@@ -62,13 +62,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       return;
     }
     try {
-      const userData = await getDocument<BallistaUser>(
-        "users",
-        firebaseUser.uid
-      );
+      const userData = await getDocument<CosivaUser>("users", firebaseUser.uid);
 
       if (!userData) {
-        const defaultUserData: BallistaUser = {
+        const defaultUserData: CosivaUser = {
           uid: firebaseUser.uid,
         };
         await createDocument("users", defaultUserData, firebaseUser.uid);

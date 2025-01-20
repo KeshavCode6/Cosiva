@@ -1,3 +1,3 @@
-export interface BallistaUser {
+export interface CosivaUser {
   uid: string;
 }
