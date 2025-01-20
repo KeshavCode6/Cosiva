@@ -56,10 +56,10 @@ export default function Landing() {
             </div>
           </div>
           <div className="flex flex-col items-center">
-          <span className="font-medium mb-4">Meet our team</span>
+          <span className="font-semibold mb-6 text-2xl">Our team</span>
           <div className="flex flex-row gap-8">
             {teamMembers.map((member, index) => (
-              <Link key={index} className="flex flex-col items-center text-center hover:scale-105 transition-all" href={member.site} target="_blank">
+              <Link key={index} className="flex flex-col items-center text-center hover:scale-105 transition-all" href={member.url} target="_blank">
                 <Image
                   src={member.image}
                   alt={`Team Member: ${member.name}`}

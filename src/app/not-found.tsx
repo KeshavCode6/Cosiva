@@ -15,7 +15,7 @@ const ErrorPage = () => {
                         This page does not exist! If you believe this is a mistake, 
                         please contact us. For now,
                     </span>
-                    <Link className="text-purple-400 underline" href='/'>Return home</Link>
+                    <Link className="text-orange-400 underline" href='/'>Return home</Link>
 
                 </div>
             </div>

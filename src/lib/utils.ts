@@ -19,19 +19,19 @@ export const teamMembers = [
     name: "Sanjay Bandaru",
     role: "Head of Marketing",
     image: sanjayBandaruImage,
-    site:"https://github.com/SanjayVBandaru"
+    url: "https://github.com/SanjayVBandaru"
   },
   {
     name: "Keshav Shah",
     role: "Head of Operations",
     image: keshavShahImage,
-    site:"https://keshav.pro"
+    url: "https://keshav.pro"
   },
   {
     name: "Shaurya Kumar",
     role: "Head of Technology",
     image: shauryaKumarImage,
-    site:"https://shaurya.pro"
+    url: "https://shaurya.pro"
 
   },
 ];

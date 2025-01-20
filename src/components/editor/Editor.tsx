@@ -92,7 +92,7 @@ const Editor = React.forwardRef((props: { setActiveTab: any, setOutput: any,  se
     };
 
     const handleResetCode = () => setEditorContent(defaultCode);
-    const handleConnect = () => setEditorContent("# Write your code here");
+    const handleConnect = () => {};
 
     useImperativeHandle(ref, () => ({
         runCode: () => handleRunCode(),
@@ -135,6 +135,9 @@ const Editor = React.forwardRef((props: { setActiveTab: any, setOutput: any,  se
     const speech = useSpeechRecognition(async (transcript: string) => {
         runCode(editorContent, `onSpeak("${transcript.toString()}")`, true);
     });
+
+    const [device, setDevice] = useState(null);
+    const [characteristic, setCharacteristic] = useState(null);
 
     return (
         <Card
