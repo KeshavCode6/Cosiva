@@ -1,5 +1,5 @@
 "use client";
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/navbar/navbar";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/sections/AnimatedSection";
 import WaveDivider from "@/components/sections/WaveDivider";
@@ -8,7 +8,7 @@ import Workshops from "@/components/sections/Workshops";
 import Image from "next/image";
 import { CalendarPlus, DollarSign, Mail } from "lucide-react";
 import header from "@/../public/landing/header.svg";
-import Logo from "@/components/logo";
+import Logo from "@/components/navbar/logo";
 
 export default function Landing() {
   return (
