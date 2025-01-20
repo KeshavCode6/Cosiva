@@ -32,7 +32,7 @@ export default function Footer() {
                 href="/editor"
                 className="text-foreground/60 hover:text-foreground"
               >
-                Editor
+                Learn
               </Link>
             </li>
           </ul>

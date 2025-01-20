@@ -12,7 +12,7 @@ import Logo from "@/components/logo";
 
 export default function Landing() {
   return (
-    <Navbar className="bg-gray-50" footer={true}>
+    <Navbar className="bg-gray-50" footer>
       {/* Hero Section */}
       <div className="flex flex-col sm:flex-row h-[60vh]  mt-52 sm:mt-32 items-center justify-center gap-24 px-4">
         <div className="flex flex-col">
