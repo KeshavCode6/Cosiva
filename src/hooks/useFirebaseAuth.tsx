@@ -21,9 +21,9 @@ interface AuthContextType {
   getUserData: () => Promise<void>;
   status: "authenticated" | "unauthenticated" | "loading";
   signIn: (
+    provider: "google" | "email",
     email?: string,
     password?: string,
-    provider?: "google"
   ) => Promise<void>;
   signUp: (email: string, password: string) => Promise<void>;
   logOut: () => Promise<void>;
@@ -79,32 +79,28 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   const signIn = async (
-    provider?: string,
+    provider: string,
     email?: string,
     password?: string
   ) => {
     try {
-      if (provider) {
-        let providerType: any;
+      switch (provider) {
+        case "google":
+          await signInWithPopup(auth, new GoogleAuthProvider());
+          break;
+        case "email":
+          if (email && password) {
+            await signInWithEmailAndPassword(auth, email, password);
+          } else {
+            throw new Error("Email and password are required for login.");
+          }
+          break;
 
-        switch (provider) {
-          case "google":
-            providerType = new GoogleAuthProvider();
-            break;
-          default:
-            throw new Error(`Unsupported provider: ${provider}`);
-        }
-
-        await signInWithPopup(auth, providerType);
-      } else {
-        if (email && password) {
-          await signInWithEmailAndPassword(auth, email, password);
-        } else {
-          throw new Error("Email and password are required for login.");
-        }
+        default:
+          throw new Error(`Unsupported provider: ${provider}`);
       }
+
     } catch (error) {
-      console.error("Error signing in:", error);
       throw error;
     }
   };
@@ -113,7 +109,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
     } catch (error) {
-      console.error("Error signing up:", error);
       throw error;
     }
   };

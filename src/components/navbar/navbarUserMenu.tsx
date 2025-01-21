@@ -9,19 +9,31 @@ import {
   DropdownMenuLabel,
 } from "../ui/dropdown-menu";
 import { LogOutIcon } from "lucide-react";
-import { User } from "firebase/auth";
+import { useFirebaseAuth } from "@/hooks/useFirebaseAuth";
+import { useRouter } from "next/navigation";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Spinner } from "../loading";
 
-export function NavbarUserMenu({ firebaserUser }: { firebaserUser: User }) {
-  if (!firebaserUser) {
-    return undefined;
-  }
+export function NavbarUserMenu() {
+  const { firebaseUser, logOut } = useFirebaseAuth();
+  const router = useRouter();
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <div className="border border-input rounded-full aspect-square h-10"></div>
+
+        <Avatar>
+          <AvatarImage
+            src={firebaseUser?.photoURL || ""}
+            alt="pfp"
+          />
+          <AvatarFallback>
+            {firebaseUser ? firebaseUser?.email?.charAt(0) : <Spinner />}
+          </AvatarFallback>
+        </Avatar>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent>
+      <DropdownMenuContent className="mr-4">
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
@@ -34,12 +46,12 @@ export function NavbarUserMenu({ firebaserUser }: { firebaserUser: User }) {
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem className="text-destructive">
+          <DropdownMenuItem className="text-destructive" onClick={() => { logOut(); router.push("/dashboard") }}>
             <LogOutIcon />
             Sign out
           </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>
-    </DropdownMenu>
+    </DropdownMenu >
   );
 }

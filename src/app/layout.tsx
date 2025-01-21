@@ -7,7 +7,7 @@ import { AuthProvider } from "@/hooks/useFirebaseAuth";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "700"], // Adjust weights as needed
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
