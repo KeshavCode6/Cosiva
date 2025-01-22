@@ -13,8 +13,6 @@ import { Menu } from "lucide-react";
 import Footer from "./footer";
 import Logo from "./logo";
 
-import { NavbarUserMenu } from "./navbarUserMenu";
-import { useFirebaseAuth } from "@/hooks/useFirebaseAuth";
 import { Spinner } from "../loading";
 import { useRouter } from "next/navigation";
 
@@ -44,32 +42,13 @@ function NavLinks() {
   );
 }
 
-export default function Navbar({ children, className, footer, protectedRoute = false }: NavbarProps) {
-  const { status } = useFirebaseAuth();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (protectedRoute && status === "unauthenticated") {
-      router.push("/")
-    }
-  }, [status])
-
+export default function Navbar({ children, className, footer }: NavbarProps) {
   return (
     <div className={`flex flex-col h-screen`}>
       <header className="fixed top-0 w-full flex justify-between px-8 py-4 z-50 bg-background/80 backdrop-blur-lg border-b">
         <Logo />
         <div className="hidden sm:flex flex-row gap-4 md:gap-8 items-center">
           <NavLinks />
-          {status === "loading" ? (
-            <Spinner />
-          ) : status === "authenticated" ? (
-            <NavbarUserMenu />
-          ) : (
-            <Button asChild>
-              <Link href="/authentication">Try now!</Link>
-            </Button>
-          )}
-
         </div>
 
         <Sheet>

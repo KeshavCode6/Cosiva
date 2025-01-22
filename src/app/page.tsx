@@ -4,16 +4,17 @@ import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/sections/AnimatedSection";
 import WaveDivider from "@/components/sections/WaveDivider";
 import Link from "next/link";
-import Workshops from "@/components/sections/Workshops";
 import Image from "next/image";
 import { CalendarPlus, DollarSign, Mail } from "lucide-react";
-import header from "@/../public/landing/header.svg";
-import Logo from "@/components/navbar/logo";
+import header from "../../public//landing/header.svg"
+import CountdownTimer from "@/components/CountdownTimer";
+import Steps from "@/components/sections/Steps";
+import WhyUs from "@/components/sections/WhyUs";
 
 export default function Landing() {
+
   return (
     <Navbar className="bg-gray-50" footer>
-      {/* Hero Section */}
       <div className="flex flex-col sm:flex-row h-[60vh]  mt-52 sm:mt-32 items-center justify-center gap-24 px-4">
         <div className="flex flex-col">
           <span className="text-3xl font-bold max-w-md mb-1">
@@ -27,7 +28,7 @@ export default function Landing() {
           <div className="mt-4 gap-2 flex">
             <Button size={"lg"}>
               <CalendarPlus />
-              Sign up for an event today!
+              Pre-Enroll right now for FREE!
             </Button>
           </div>
         </div>
@@ -37,16 +38,40 @@ export default function Landing() {
           className="rounded-lg w-96 object-cover"
         />
       </div>
-
-      {/* Sponsors Section */}
-      <div className="flex justify-center items-center my-12 px-4">
-        <Logo />
+      <div className="w-full px-4 pb-8">
+        <CountdownTimer />
       </div>
       <div id="about" />
 
-      {/* About Us */}
-      <WaveDivider direction="top" fillColor="#f0ecec" />
-      <div className="bg-[#f0ecec]">
+      {/* Why Us */}
+      <WaveDivider direction="top" fillColor="#eaeaea" />
+      <div className="flex flex-col items-center justify-center py-8 bg-[#eaeaea]">
+        <span className="font-bold text-3xl">Why Cosiva?</span>
+        <span className="mb-8 max-w-lg">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</span>
+        <WhyUs />
+      </div>
+      <WaveDivider direction="bottom" fillColor="#eaeaea" />
+
+      <div id="workshops" />
+      <div className="flex flex-col w-full py-24 mb-16 justify-center items-center px-4">
+        <AnimatedSection className="flex flex-col justify-center items-center">
+          <span className="text-2xl md:text-3xl font-bold text-center">
+            How does Cosiva work?
+          </span>
+          <span className="text-gray-600 text-md text-center max-w-2xl mt-2">
+            Our kid-focused workshops make learning fun and personal. Kids will
+            learn real programming languages like Python through our own{" "}
+            <Link className="text-orange-500 underline" href={`/editor`}>
+              web-based editor
+            </Link>{" "}
+            that is designed to be intuitive and engaging.
+          </span>
+        </AnimatedSection>
+        <Steps />
+      </div>
+
+      <WaveDivider direction="top" fillColor="rgb(255, 255, 255)" />
+      <div className="bg-white pb-16">
         <AnimatedSection className="flex flex-col lg:flex-row justify-center items-center w-full py-16 px-4 gap-8 md:gap-16 sm:px-12 lg:gap-32">
           <div className="flex flex-col items-start max-w-lg">
             <span className="text-2xl font-bold text-gray-800">About Us</span>
@@ -72,33 +97,10 @@ export default function Landing() {
               </Button>
             </div>
           </div>
+          <div className="bg-primary w-96 h-72 rounded-lg" />
+
         </AnimatedSection>
       </div>
-      <WaveDivider direction="bottom" fillColor="#f0ecec" />
-
-      <div id="workshops" />
-      <div className="flex flex-col w-full py-24 justify-center items-center px-4">
-        <AnimatedSection className="flex flex-col justify-center items-center">
-          <span className="text-2xl md:text-3xl font-bold text-center">
-            Our Workshops
-          </span>
-          <span className="text-gray-600 text-md text-center max-w-2xl mt-2">
-            Our kid-focused workshops make learning fun and personal. Kids will
-            learn real programming languages like Python through our own{" "}
-            <Link className="text-orange-500 underline" href={`/editor`}>
-              web-based editor
-            </Link>{" "}
-            while building projects that make use of emerging concepts and
-            receiving step-by-step guidance to build future-ready skills from
-            our instructors.
-          </span>
-        </AnimatedSection>
-        <AnimatedSection className="flex justify-center w-full mt-8 gap-8 md:gap-16">
-          <Workshops />
-        </AnimatedSection>
-      </div>
-
-      <WaveDivider direction="top" fillColor="rgb(255, 255, 255)" />
     </Navbar>
   );
 }

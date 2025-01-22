@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
-import { FirestoreProvider } from "@/hooks/useFirestore";
-import { AuthProvider } from "@/hooks/useFirebaseAuth";
+
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -33,9 +32,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <FirestoreProvider>
-            <AuthProvider>{children}</AuthProvider>
-          </FirestoreProvider>
+          {children}
         </ThemeProvider>
       </body>
     </html>
