@@ -23,21 +23,30 @@ interface NavbarProps {
   protectedRoute?: boolean;
 }
 
-function NavLinks() {
+function NavbarLinks() {
+
+  const links = [
+    {
+      href: "/#about",
+      label: "About",
+    },
+    {
+      href: "/#workshops",
+      label: "Workshops",
+    },
+    {
+      href: "mailto:admin@cosiva.org",
+      label: "Contact",
+    }
+  ]
+
   return (
     <>
-      <Link href="/#about" className="text-foreground/60 hover:text-primary">
-        About Us
-      </Link>
-      <Link
-        href="/#workshops"
-        className="text-foreground/60 hover:text-primary"
-      >
-        Our workshops
-      </Link>
-      <Link href="mailto:admin@cosiva.org" className="text-foreground/60 hover:text-primary">
-        Contact
-      </Link>
+      {links.map((link, index) => (
+        <Link href={link.href} key={index} className="text-foreground/60 hover:text-primary transition-colors">
+          {link.label}
+        </Link>
+      ))}
     </>
   );
 }
@@ -48,7 +57,7 @@ export default function Navbar({ children, className, footer }: NavbarProps) {
       <header className="fixed top-0 w-full flex justify-between px-8 py-4 z-50 bg-background/80 backdrop-blur-lg border-b">
         <Logo />
         <div className="hidden sm:flex flex-row gap-4 md:gap-8 items-center">
-          <NavLinks />
+          <NavbarLinks />
         </div>
 
         <Sheet>
@@ -61,7 +70,7 @@ export default function Navbar({ children, className, footer }: NavbarProps) {
           <SheetContent side="right" className="w-[300px] sm:w-[400px]">
             <SheetTitle className="mb-4">Menu</SheetTitle>
             <nav className="flex flex-col gap-4">
-              <NavLinks />
+              <NavbarLinks />
             </nav>
           </SheetContent>
         </Sheet>

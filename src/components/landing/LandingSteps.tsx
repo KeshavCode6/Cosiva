@@ -1,8 +1,8 @@
 import React from 'react'
-import { AnimatedSection } from './AnimatedSection'
+import { LandingAnimatedSection } from './LandingAnimatedSection'
 import { ArrowRight, GraduationCap, Handshake, UserRoundPlus } from 'lucide-react'
 
-export default function Steps() {
+export default function LandingSteps() {
     const steps = [
         {
             icon: <UserRoundPlus />,
@@ -21,7 +21,7 @@ export default function Steps() {
         }
     ]
     return (
-        <AnimatedSection className="flex justify-center itemsw-full mt-16 gap-8 md:gap-16">
+        <LandingAnimatedSection className="flex justify-center itemsw-full mt-16 gap-8 md:gap-16">
             {steps.map((step: { icon: React.ReactNode, header: string, description: string }, index: number) => {
                 return (
                     <React.Fragment key={index}>
@@ -43,6 +43,6 @@ export default function Steps() {
                     </React.Fragment>
                 )
             })}
-        </AnimatedSection>
+        </LandingAnimatedSection>
     )
 }

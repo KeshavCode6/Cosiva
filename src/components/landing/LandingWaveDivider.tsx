@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function WaveDivider({ className, direction, fillColor }:{className?:string, direction:"top"|"bottom", fillColor:string}) {
+export default function LandingWaveDivider({ className, direction, fillColor }:{className?:string, direction:"top"|"bottom", fillColor:string}) {
   return (
     <svg
         id="wave"

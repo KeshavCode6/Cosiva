@@ -65,10 +65,15 @@ export default {
           "0%": { opacity: "1" },
           "100%": { opacity: "0" },
         },
+        flyInFromRight: {
+          "0%": { transform: "translateX(25%)", opacity: "0" },
+          "100%": { transform: "translateX(0)", opacity: "1" },
+        }
       },
       animation: {
         fadeIn: "fadeIn 0.3s ease-in-out",
         fadeOut: "fadeOut 0.3s ease-in-out",
+        flyInFromRight: "flyInFromRight 0.1s ease-in-out",
       },
     },
   },

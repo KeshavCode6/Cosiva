@@ -1,5 +1,5 @@
 import { DollarSign } from 'lucide-react';
-import { AnimatedSection } from './AnimatedSection';
+import { LandingAnimatedSection } from './LandingAnimatedSection';
 
 // Define the features array
 const features = [
@@ -25,9 +25,9 @@ const features = [
     },
 ];
 
-const WhyUs = () => {
+const LandingWhyUs = () => {
     return (
-        <AnimatedSection className="flex flex-col lg:flex-row justify-center items-center w-full gap-4 md:gap-24 sm:px-12">
+        <LandingAnimatedSection className="flex flex-col lg:flex-row justify-center items-center w-full gap-4 md:gap-24 sm:px-12">
             <div className="bg-primary w-96 h-72 rounded-lg" />
             <div className="grid grid-cols-2 gap-8">
                 {features.map((feature, index) => (
@@ -40,8 +40,8 @@ const WhyUs = () => {
                     </div>
                 ))}
             </div>
-        </AnimatedSection>
+        </LandingAnimatedSection>
     );
 };
 
-export default WhyUs;
+export default LandingWhyUs;
