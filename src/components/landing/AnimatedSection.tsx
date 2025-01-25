@@ -38,17 +38,16 @@ export function useIntersectionObserver(
 
 
 
-export function AnimatedSection({ children, className, id }: { children?: React.ReactNode, className?:string, id?:string}) {
+export function AnimatedSection({ children, className, id }: { children?: React.ReactNode, className?: string, id?: string }) {
     const ref = useRef<HTMLDivElement>(null);
     const isVisible = useIntersectionObserver(ref, { threshold: 0.1 });
 
     return (
         <div
             ref={ref}
-            className={`transition-all duration-700 ease-out transform ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            } ${className}`}
-             id={id}
+            className={`transition-all duration-700 ease-out transform ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                } ${className}`}
+            id={id}
         >
             {children}
         </div>
