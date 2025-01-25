@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { FirestoreProvider } from "@/hooks/useFirestore";
 import { AuthProvider } from "@/hooks/useFirebaseAuth";
+import 'highlight.js/styles/default.css';
 
 const poppins = Poppins({
   subsets: ["latin"],
