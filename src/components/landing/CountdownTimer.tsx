@@ -36,7 +36,7 @@ export default function CountdownTimer() {
 
     return (
         <div className="flex flex-col w-full justify-center items-center max-w-4xl mx-auto">
-            <span className="mb-4">Time before LAUNCH</span>
+            <span className="mb-4">Time until our official Launch</span>
             <div className="flex ">
                 <div className="flex space-x-4">
                     {Object.entries(timeLeft).map(([unit, value]) => (

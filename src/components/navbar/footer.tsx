@@ -57,7 +57,7 @@ export default function Footer() {
                 <Youtube className="h-4 w-4" />
               </Link>
             </Button>
-            {/* <Button variant="outline" size="icon" asChild>
+            <Button variant="outline" size="icon" asChild>
               <Link
                 href="https://www.facebook.com/cosivanonprofit"
                 aria-label="Facebook"
@@ -65,7 +65,7 @@ export default function Footer() {
               >
                 <Facebook className="h-4 w-4" />
               </Link>
-            </Button> */}
+            </Button>
             <Button variant="outline" size="icon" asChild>
               <Link
                 href="https://www.instagram.com/cosivanonprofit"
