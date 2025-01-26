@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Card, CardContent } from "@/components/ui/card"
 
 interface TimeLeft {
     days: number
@@ -12,7 +11,7 @@ interface TimeLeft {
 
 export default function CountdownTimer() {
     const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 })
-    const targetDate = new Date("2025-12-31T00:00:00")
+    const targetDate = new Date("2025-02-09T00:00:00")
 
     useEffect(() => {
         const timer = setInterval(() => {

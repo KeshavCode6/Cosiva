@@ -1,31 +1,27 @@
 "use client"
 
 import Navbar from "@/components/navbar/navbar"
-import { Button } from "@/components/ui/button"
 import { AnimatedSection } from "@/components/landing/AnimatedSection"
 import Image from "next/image"
-import { CalendarPlus, DollarSign, Mail } from "lucide-react"
 import header from "../../public/landing/header.svg"
 import CountdownTimer from "@/components/landing/CountdownTimer"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { benefits, faqs, features } from "@/lib/landing"
+import EnrollButton from "@/components/landing/EnrollButton"
 
 export default function Landing() {
   return (
     <Navbar footer>
       <div className="flex flex-col lg:flex-row min-h-[60vh] mt-32 items-center justify-center gap-8 lg:gap-24 px-4 lg:px-8">
         <div className="flex flex-col max-w-xl">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Teach kids coding in a way that's fun!</h1>
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Teach kids coding in a way that&apos;s fun!</h1>
           <p className="text-sm sm:text-base lg:text-lg font-medium mb-6">
             Cosiva is dedicated to teaching kids coding through fun, hands-on projects, while preparing them for the
             future with concepts like AI and other emerging technologies.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button size="lg" className="w-full sm:w-auto">
-              <CalendarPlus className="mr-2 h-4 w-4" />
-              Pre-Enroll right now for FREE!
-            </Button>
+            <EnrollButton />
           </div>
         </div>
         <Image
@@ -60,25 +56,22 @@ export default function Landing() {
       <div className="flex flex-col items-center justify-center py-48 relative px-4 lg:px-8" id="about">
         <h2 className="font-bold text-2xl sm:text-3xl lg:text-4xl mb-4 text-center">Learn Coding, the easy way</h2>
         <p className="mb-8 max-w-lg text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-        <AnimatedSection className="flex flex-col lg:flex-row items-center justify-center gap-8">
-          <div className="flex flex-col justify-center w-full lg:w-1/2 gap-4">
-            {features.map((card, index) => (
-              <Card key={index} className="w-full flex items-center justify-between p-4">
-                <div className="flex flex-col max-w-[80%]">
-                  <span className="font-bold">{card.title}</span>
-                  <p className="text-sm">{card.description}</p>
-                </div>
-                <div className="bg-primary rounded-lg text-white flex items-center justify-center w-12 h-12">
-                  {card.icon}
-                </div>
-              </Card>
-            ))}
-          </div>
-          <div className="bg-orange-500 w-full lg:w-72 h-64 lg:h-96 rounded-lg" />
+        <AnimatedSection className="flex flex-col items-center justify-center gap-2 max-w-[40vw]">
+          {features.map((card, index) => (
+            <Card key={index} className="w-full flex items-center justify-between p-4  hover:border-orange-400 transition-all group" >
+              <div className="flex flex-col max-w-[80%]">
+                <span className="font-bold">{card.title}</span>
+                <p className="text-sm">{card.description}</p>
+              </div>
+              <div className="bg-primary rounded-lg text-white flex items-center justify-center w-12 h-12 group-hover:bg-orange-600 transition-all">
+                {card.icon}
+              </div>
+            </Card>
+          ))}
         </AnimatedSection>
         <img
           src="/landing/aboutus.svg"
-          className="hidden lg:block absolute right-10 bottom-3 max-w-[15vw]"
+          className="hidden lg:block absolute left-10 bottom-3 max-w-[15vw]"
           alt="Team illustration"
         />
       </div>
@@ -89,9 +82,9 @@ export default function Landing() {
         <AnimatedSection className="flex flex-col lg:flex-row justify-center items-center w-full relative">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {benefits.map((feature, index) => (
-              <Card key={index} className="flex flex-col justify-center items-center h-auto sm:h-64 w-full sm:w-72">
+              <Card key={index} className="flex flex-col justify-center items-center h-auto sm:h-64 w-full sm:w-72  hover:border-orange-400 transition-all group" >
                 <CardHeader className="flex flex-col items-center">
-                  <div className="bg-primary rounded-lg aspect-square text-white flex items-center justify-center w-12">
+                  <div className="group-hover:bg-orange-600 bg-primary transition-all rounded-lg aspect-square text-white flex items-center justify-center w-12">
                     {feature.icon}
                   </div>
                 </CardHeader>
@@ -105,7 +98,7 @@ export default function Landing() {
         </AnimatedSection>
         <img
           src="/landing/whyus.svg"
-          className="hidden lg:block absolute left-10 bottom-3 w-[15vw]"
+          className="hidden lg:block absolute right-10 bottom-3 w-[15vw]"
           alt="FAQs illustration"
         />
       </div>
@@ -122,13 +115,9 @@ export default function Landing() {
             ))}
           </Accordion>
         </Card>
+
         <img
-          src="/landing/faqs/faq1.svg"
-          className="hidden lg:block absolute right-10 bottom-3 w-[15vw]"
-          alt="Question illustration"
-        />
-        <img
-          src="/landing/faqs/faq2.svg"
+          src="/landing/faqs.svg"
           className="hidden lg:block absolute left-10 bottom-3 w-[15vw]"
           alt="Questions illustration"
         />
@@ -140,15 +129,12 @@ export default function Landing() {
       >
         <AnimatedSection className="flex flex-col w-full items-center justify-center">
           <h2 className="text-white font-bold text-xl sm:text-2xl lg:text-3xl mb-4 text-center">
-            Start your kid's future today with Cosiva!
+            Start your kid&apos;s future today with Cosiva!
           </h2>
           <p className="text-white max-w-xl mb-6 text-center text-sm sm:text-base">
             Pre-Enroll now by clicking the button below! Cosiva is completely free and commitment-free!
           </p>
-          <Button size="lg" variant="outline" className="w-full sm:w-auto">
-            <CalendarPlus className="mr-2 h-4 w-4" />
-            Pre-Enroll right now for FREE!
-          </Button>
+          <EnrollButton variant="outline" />
         </AnimatedSection>
       </div>
     </Navbar>

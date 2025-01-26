@@ -3,39 +3,14 @@ import Logo from "./logo";
 import Link from "next/link";
 import { Facebook, Instagram, Mail, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
+import { NavbarLinks } from "./navbar";
 export default function Footer() {
   return (
-    <footer>
+    <footer id="footer">
       <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between">
           <Logo />
-          <ul className="flex flex-wrap items-center gap-4 my-4 md:my-0">
-            <li>
-              <Link
-                href="/#about"
-                className="text-foreground/60 hover:text-foreground"
-              >
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/#programs"
-                className="text-foreground/60 hover:text-foreground"
-              >
-                Our Programs
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/editor"
-                className="text-foreground/60 hover:text-foreground"
-              >
-                Learn
-              </Link>
-            </li>
-          </ul>
+          <NavbarLinks className="flex items-center" register={false} />
         </div>
         <hr className="my-6 border-gray-200 sm:mx-auto" />
         <div className="flex items-center justify-between">

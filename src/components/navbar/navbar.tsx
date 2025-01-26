@@ -9,13 +9,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
-} from "@/components/ui/dropdown-menu";
-import { ChevronDown, Facebook, Instagram, Mail, Menu, Youtube } from "lucide-react";
+
+import { Menu } from "lucide-react";
 import Footer from "./footer";
 import Logo from "./logo";
 
@@ -26,19 +21,23 @@ interface NavbarProps {
   protectedRoute?: boolean;
 }
 
-function NavbarLinks({ className }: { className: string }) {
+export function NavbarLinks({ className, register = true }: { className?: string, register?: boolean }) {
   const links = [
     {
       href: "/#about",
-      label: "About us",
+      label: "About",
     },
     {
       href: "/#whyus",
-      label: "Why us",
+      label: "Why Us",
     },
     {
       href: "/#faqs",
       label: "FAQs",
+    },
+    {
+      href: "/#footer",
+      label: "Contact",
     },
   ];
 
@@ -54,52 +53,13 @@ function NavbarLinks({ className }: { className: string }) {
         </Link>
       ))}
 
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button className="text-white  transition-colors">
-            Contact
-            <ChevronDown />
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent >
-          <DropdownMenuItem asChild>
-            <Link href="mailto:contact@cosiva.org" aria-label="Instagram">
-              <Mail className="h-4 w-4" />
-              Email
-            </Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link
-              href="https://www.youtube.com/@cosivanonprofit"
-              aria-label="Twitter"
-              target="_blank"
-            >
-              <Youtube className="h-4 w-4" />
-              Youtube
-            </Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link
-              href="https://www.instagram.com/cosivanonprofit"
-              aria-label="Instagram"
-              target="_blank"
-            >
-              <Instagram className="h-4 w-4" />
-              Instagram
-            </Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link
-              href="https://www.instagram.com/cosivanonprofit"
-              aria-label="Instagram"
-              target="_blank"
-            >
-              <Facebook className="h-4 w-4" />
-              Facebook
-            </Link>
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+      {register && (
+        <Button asChild>
+          <Link href="https://docs.google.com/forms/d/e/1FAIpQLSemQ9RaKmBG_Sa4_cuZHoLmFWtGILqaOeqvJIx5IYCtO-hfLg/viewform?usp=dialog" target="_blank">
+            Register Now!
+          </Link>
+        </Button>
+      )}
     </div>
   );
 }
